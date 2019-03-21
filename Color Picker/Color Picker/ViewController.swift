@@ -4,9 +4,16 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var colorPicker: ColorPicker!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        [UIColor.red, .blue, .green, .yellow, .orange, .purple, .gray, .magenta, .brown, .lightGray].forEach {
+            colorPicker.insertColor($0, at: colorPicker.numberOfItems)
+        }
+        colorPicker.alignment = .fill
+        colorPicker.tintColor = .black
     }
 
 

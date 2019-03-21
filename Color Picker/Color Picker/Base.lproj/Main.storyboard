@@ -19,21 +19,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xq9-5R-i08" customClass="ColorPicker" customModule="Color_Picker" customModuleProvider="target">
-                                <rect key="frame" x="16" y="269.5" width="343" height="128"/>
+                                <rect key="frame" x="16" y="289.5" width="343" height="88"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="VBL-5C-XGZ"/>
+                                    <constraint firstAttribute="height" constant="88" id="aLn-dI-mZT"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Xq9-5R-i08" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="JRS-CW-F3E"/>
-                            <constraint firstItem="Xq9-5R-i08" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jJg-vs-Bjx"/>
+                            <constraint firstItem="Xq9-5R-i08" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="cpO-Gn-MDU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xq9-5R-i08" secondAttribute="trailing" constant="16" id="usZ-Gi-78m"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="colorPicker" destination="Xq9-5R-i08" id="wuw-lP-K2L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

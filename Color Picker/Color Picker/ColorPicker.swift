@@ -10,7 +10,16 @@ class ColorPicker: UIControl {
             select(selectedIndex)
         }
     }
+
+    var maxPerRow: Int = 7
+    var alignment: UIStackView.Alignment = .fill {
+        didSet {
+            container.alignment = alignment
+        }
+    }
+
     private var buttons = [SelectableButton]()
+    private let container = UIStackView(frame: .zero)
     private var stackView: UIStackView!
     private var colors: [UIColor]!
 
@@ -33,14 +42,31 @@ class ColorPicker: UIControl {
     }
 
     private func setupView() {
-        backgroundColor = .clear
+        backgroundColor = .white
+
+        container.axis = .vertical
+        container.alignment = alignment
+        container.distribution = .fill
+        addSubview(container)
+        container.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            container.topAnchor.constraint(equalTo: topAnchor),
+            container.bottomAnchor.constraint(equalTo: bottomAnchor),
+            container.leadingAnchor.constraint(equalTo: leadingAnchor),
+            container.trailingAnchor.constraint(equalTo: trailingAnchor)
+            ])
+
         buttons = createButtons()
         addColorButtonsStackView(buttons)
+
+        setNeedsLayout()
+        layoutIfNeeded()
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        buttons.forEach { $0.cornerRadius = stackView.bounds.height / 2 }
+        print(#function)
+        buttons.forEach { $0.cornerRadius = $0.bounds.height / 2 }
     }
 
     func insertColor(_ color: UIColor, at position: Int) {
@@ -68,34 +94,21 @@ class ColorPicker: UIControl {
         let circleButton = SelectableButton(frame: .zero)
         circleButton.backgroundColor = color
         circleButton.borderWidth = 1.5
-        circleButton.borderColor = UIColor(named: "barTint")!
+        circleButton.borderColor = tintColor
         circleButton.isSelected = false
         circleButton.addTarget(self, action: #selector(handleSelection(_:)), for: .touchUpInside)
-        NSLayoutConstraint.activate([
-            circleButton.widthAnchor.constraint(equalToConstant: 34),
-            circleButton.heightAnchor.constraint(equalToConstant: 34)
-            ])
         return circleButton
     }
 
     private func addColorButtonsStackView(_ buttons: [SelectableButton]) {
         stackView = UIStackView(arrangedSubviews: buttons)
         stackView.axis = .horizontal
-        stackView.alignment = .fill
+        stackView.alignment = .top
         stackView.distribution = .equalSpacing
-        stackView.spacing = 4
-        addSubview(stackView)
+        stackView.spacing = 2
+        container.addArrangedSubview(stackView)
 
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor)
-            ])
-
-        buttons.forEach { $0.widthAnchor.constraint(equalTo: $0.heightAnchor).isActive = true }
+//        buttons.forEach { $0.widthAnchor.constraint(equalTo: $0.heightAnchor).isActive = true }
     }
 
     private func select(_ index: Int) {
@@ -114,5 +127,10 @@ class ColorPicker: UIControl {
             }
         }
         sendActions(for: .valueChanged)
+    }
+
+    override func tintColorDidChange() {
+        super.tintColorDidChange()
+        buttons.forEach { $0.borderColor = tintColor }
     }
 }

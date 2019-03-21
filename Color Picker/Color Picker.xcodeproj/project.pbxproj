@@ -13,6 +13,8 @@
 		83C0C019223B06FC005860C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83C0C018223B06FC005860C7 /* Assets.xcassets */; };
 		83C0C01C223B06FC005860C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83C0C01A223B06FC005860C7 /* LaunchScreen.storyboard */; };
 		83C0C024223B0837005860C7 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0C023223B0837005860C7 /* ColorPicker.swift */; };
+		83C0C046223B114A005860C7 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0C045223B114A005860C7 /* SelectableButton.swift */; };
+		83C0C048223B1160005860C7 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0C047223B1160005860C7 /* RoundedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		83C0C01B223B06FC005860C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83C0C01D223B06FC005860C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83C0C023223B0837005860C7 /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
+		83C0C045223B114A005860C7 /* SelectableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
+		83C0C047223B1160005860C7 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 		83C0C010223B06FA005860C7 /* Color Picker */ = {
 			isa = PBXGroup;
 			children = (
+				83C0C047223B1160005860C7 /* RoundedButton.swift */,
+				83C0C045223B114A005860C7 /* SelectableButton.swift */,
 				83C0C023223B0837005860C7 /* ColorPicker.swift */,
 				83C0C011223B06FA005860C7 /* AppDelegate.swift */,
 				83C0C013223B06FA005860C7 /* ViewController.swift */,
@@ -139,6 +145,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				83C0C014223B06FA005860C7 /* ViewController.swift in Sources */,
+				83C0C048223B1160005860C7 /* RoundedButton.swift in Sources */,
+				83C0C046223B114A005860C7 /* SelectableButton.swift in Sources */,
 				83C0C012223B06FA005860C7 /* AppDelegate.swift in Sources */,
 				83C0C024223B0837005860C7 /* ColorPicker.swift in Sources */,
 			);
